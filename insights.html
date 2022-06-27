@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title> Redberry | Insights </title>
+		<link rel="stylesheet" href="style.css">
+		<script defer src="main.js"></script>
+	</head>
+
+	<body onload="fillInsightsValues()" class="ins-body">
+		<div class="ins-divL split">
+			<h1 class="covid-h1">What About You?</h1>
+			<form onsubmit="insightsToStorage()" class="ins-form" action="submit.html">
+				<div class="ins-radio">
+					<p> Would you attend Devtalks and maybe also organize your own?</p>
+					<input value="yes" onclick="showTxtArea()"required type="radio" name="ins-radio" id="ins-yes"></input>
+					<label for="ins-yes">Yes</label>
+					<br>
+					<input value="no" onclick="showTxtArea()"required type="radio" name="ins-radio" id="ins-no"></input>
+					<label for="ins-no">No</label>
+				</div>
+				<div class="ins-textarea ins-textarea1">
+					<p> What would you speak about at Devtalk?</p>
+					<textarea id="devtalkTopic" placeholder="I would..."></textarea>
+				</div>
+				<div class="ins-textarea ins-textarea2">
+					<p> Tell us something special</p>
+					<textarea required id="special" placeholder="I..."></textarea>
+				</div>
+				<div class="switchbar ins-switchbar">
+					<div class="circles">
+						<a link href="covid.html">
+							<img id="previous" src="images/previous.svg">
+						</a>
+						<a link href="pinfo.html">
+							<img id="circle1" class="circleon" src="images/circleon.svg">
+						</a>
+						<a link href="skills.html">
+							<img id="circle2" src="images/circleon.svg">
+						</a>
+						<a link href="covid.html">
+							<img id="circle3" src="images/circleon.svg">
+						</a>
+						<img id="circle4" src="images/circleon.svg">
+						<img id="circle5" src="images/circleoff.svg">
+						<button id="nextpage-ins" type="submit">
+							<img id="next" src="images/next.svg"></input>
+						</button>
+						
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="ins-divR split">
+			<h1> Redberrian Insights </h1>
+			<p>We were soo much fun before the pandemic started! Parties almost every weekend and lavish employee birthday celebrations! Unfortunately, covid ruined that fun like it did almost everything else in the world. But we try our best to zhuzh it up a bit. For example, we host biweekly Devtalks where our senior and lead developers talk about topics they are passionate about. Previous topics have included Web3, NFT, Laravel 9, Kubernetes, etc. We hold these talks in the office but you can join our Zoom broadcast as well. Feel free to join either as an attendee or a speaker!</p>
+		</div>
+	</body>
+</html>
+
+<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title> Redberry | Personal Information </title>
+		<link rel="stylesheet" href="style.css">
+		<script defer src="main.js"></script>
+	</head>
+
+	<body onload="fillValues()" class="main-body pinfo-body">
+		<div class="pinfo-divL main-L split">
+			<h1 class="pinfo-hL"> Hey, Rocketeer, what<br> are your coordinates? </h1>
+			<form onsubmit="pinfoToStorage()" action="skills.html" class="pinfo-form" id="pinfo-form">
+				<div class="fname-div">
+					<input  type="text" id="fname" name="fname" placeholder="First Name"  minlength="2" pattern="[a-zA-Z]+" required></input>
+					<p class="warn fname-warn">* first name must include at least 2 characters</p>
+				</div>
+				<div class="lname-div">
+					<input class="pinfo-error" type="text" id="lname" name="lname" placeholder="Last Name"  minlength="2" pattern="[a-zA-Z]+" required></input>
+					<p class="warn lname-warn">* last name must include at least 2 characters</p>
+				</div>
+				<div class="email-div">
+					<input class="pinfo-error" type="email" id="email" name="email" placeholder="E Mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required ></input>
+					<p class="warn email-warn">* valid email address is required</p>
+				</div>
+				<div class="phone-div">
+					<input class="pinfo-error" type="tel" id="number" name="number" placeholder="+995 5_ _ _ _" pattern=[+9955]{4}[5]{1}[0-9]{8}></input>
+					<p class="warn phone-warn">* number must start with +995 5, (i.e must be Georgian)</p>
+				</div>
+				<div class="switchbar">
+					<div class="circles">
+						<a link href="index.html">
+							<img id="previous" src="images/previous.svg">
+						</a>
+						<img id="circle1" class="circleon" src="images/circleon.svg">
+							
+						<img id="circle2" src="images/circleoff.svg">
+						<img id="circle3" src="images/circleoff.svg">
+						<img id="circle4" src="images/circleoff.svg">
+						<img id="circle5" src="images/circleoff.svg">
+						<button onclick="checkErrors()"form="pinfo-form" type="submit">
+							<img id="next" src="images/next.svg">
+						</button>
+						
+					</div>
+				</div>
+			</form>
+		</div>
+
+			<div class="pinfo-divR main-R split">
+				<h1 class="pinfo-hR"> Redberry Origins </h1>
+				<p> You watch “What? Where? When?” Yeah. Our founders used to play it. That’s where they got a question about a famous American author and screenwriter Ray Bradbury. Albeit, our CEO Gaga Darsalia forgot the exact name and he answered Ray Redberry. And at that moment, a name for a yet to be born company was inspired - Redberry 😇 </p>
+			</div>
+	</body>
+</html>
+
+<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>

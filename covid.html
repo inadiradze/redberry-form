@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title> Redberry | Covid </title>
+		<link rel="stylesheet" href="style.css">
+		<script defer src="main.js"></script>
+	</head>
+
+	<body onload="fillCovidValues()" class="covid-body">
+		<div class="covid-divL split">
+			<h1 class="covid-h1">Covid Stuff</h1>
+			<form onsubmit="covidinfoToStorage()" class="covid-form" action="insights.html">
+				<div class="work-radio">
+					<p> How would you prefer to work? </p>
+					<input value="from_office" type="radio" name="work-radio" id="sairme" required></input>
+					<label for="sairme">From Sairme Office</label>
+					<br>
+					<input value="from_home" type="radio" name="work-radio" id="home" required></input>
+					<label for="home">From Home</label>
+					<br>
+					<input value="hybrid" id="hybrid" type="radio" name="work-radio"required></input>
+					<label for="hybrid">Hybrid</label>
+				</div>
+				<div class="covid-radio">
+					<p> Did you contact covid 19? :(</p>
+				
+					<input value="yes" required type="radio" name="covid-radio" onclick="showDate()"id="covid-yes"></input>
+					<label for="covid-yes">Yes</label>
+					<br>
+					<input value="no" required onclick="showDate()" type="radio" name="covid-radio" id="covid-no"></input>
+					<label for="covid-no">No</label>
+				</div>
+				<div class="cv-d covid-date" id="covid-date">
+					<p class="date-title" id="date-title"> When? </p>
+					<input type="date" class="date-covid" id="date-covid"><img class=" covid-img date-img" id="date-img" src="images/calendar.svg"></input>
+				</div>
+				<div class="covid-radio2">
+					<p> Have you been vaccinated?</p>
+					<input value="yes" required type="radio" name="covid-radio2" onclick="showDate()" id="vaccine-yes"></input>
+					<label for="vaccine-yes">Yes</label>
+					<br>
+					<input value="no" required type="radio" name="covid-radio2" onclick="showDate()" id="vaccine-no"></input>
+					<label for="vaccine-no">No</label>
+				</div>
+				<div class="covid-date cv-d" id="covid-date2">
+					<p class="date-title" id="date-title2"> When did you get your last covid vaccine? </p>
+					<input type="date" class="date-covid" id="date-covid2"> <img class="covid-img date-img" src="images/calendar.svg"></input>
+				</div>
+				<div class="switchbar covid-switchbar">
+					<div class="circles">
+						<a link href="skills.html">
+							<img id="previous" src="images/previous.svg">
+						</a>
+						<a link href="pinfo.html">
+							<img id="circle1" class="circleon" src="images/circleon.svg">
+						</a>
+						<a link href="skills.html">
+							<img id="circle2" src="images/circleon.svg">
+						</a>
+						<img id="circle3" src="images/circleon.svg">
+						<img id="circle4" src="images/circleoff.svg">
+						<img id="circle5" src="images/circleoff.svg">
+						<button id="nextpage" type="submit">
+							<img id="next" src="images/next.svg"></input>
+						</button>
+						
+					</div>
+				</div>
+
+			
+			</form>
+		</div>
+
+		<div class="covid-divR split">
+			<h1> Redberry Covid Policies </h1>
+			<p> As this infamous pandemic took over the world, we adjusted our working practices so that our employees can be as safe and comfortable as possible. We have a hybrid work environment, so you can either work from home or visit our lovely office on Sairme Street. If it was up to us, we would love you to see us in the office because we think face-to-face communications > Zoom meetings. Both on the fun and productivity scales. </p>
+		</div>
+	</body>
+</html>
+
+<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>

@@ -1,0 +1,146 @@
+<meta charset="utf-8">
+<title> Redberry | Fetch [DEV] </title>
+<body style="font: 15px Arial, Tahoma, sans-serif; background: url('https://www.pixel4k.com/wp-content/uploads/2018/10/beautiful-sunrise-in-sky-4k_1540143617.jpg'); 	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center; color:#fff;">
+<div style=" background: black; padding: 25px; width: 400px; margin: auto; text-align: center;  margin-top: 50px; margin-bottom: 50px; word-wrap: break-word">
+	<button onclick="checkLast()" style="font-weight: bold; border: 0px; background: black; color: #f4f4f4;" id="last">TOTAL</button><br><br>
+	<div><br>
+	<input id="datatkn" onchange="changeToken()" oninput="this.style.width = ((this.value.length + 1) * 8) + 'px';" style="min-width: 115px; width: 120px; max-width: 235px; text-align: center; border: 0;outline: 0;" placeholder='Enter the token'></input><br><br>
+	<input id="datanum" style="width: 235px; border: 0;outline: 0;  text-align: center; " placeholder='Type number of data you want to see'></input><br><br>
+	<button onclick="check()" style="font-weight: bold; background: black; color: #f4f4f4; cursor: pointer; border: 0px"id="btn">Check</button>
+	<button onclick="checkAll()" style="font-weight: bold;  position: static; background: black; color: #f4f4f4;cursor: pointer; border: 0px"id="all">All</button>
+	<br><br><br>
+	<div class="application"></div>
+</div>
+</body>
+
+<style>
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f4f4f4;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: black;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+</style>
+<script>
+
+	var b = 0;
+
+	function updateTotal(){
+		if(localStorage.getItem("fetchToken") != null){
+			fetch(`https://bootcamp-2022.devtest.ge/api/applications?token=${localStorage.getItem("fetchToken")}`).then(response => response.json()).then(data => { 
+				document.querySelector("#last").textContent=`TOTAL: ${data.length}`;
+			});
+		}
+	}
+
+	updateTotal();
+
+	var tokenInput = document.querySelector("#datatkn");
+
+	function changeToken(){
+		localStorage.setItem("fetchToken", tokenInput.value);
+		updateTotal();
+	}
+
+	function checkAll(){
+		b++;
+		fetch(`https://bootcamp-2022.devtest.ge/api/applications?token=${localStorage.getItem("fetchToken")}`).then(response => response.json()).then(data => {
+			var app = document.querySelector(".application");
+			app.textContent="";
+			for(var i=0; i<data.length; i++){
+				var row = document.createElement("div");
+
+				row.innerHTML =
+				`
+				<b><span style="color:#4b7b4b; font-size: 16px">DATA # = ${i+1}</b></span><br><br>
+				Name: ${data[i].first_name}<br>
+				Surname: ${data[i].last_name}<br>
+				Email: ${data[i].email}<br>
+				Number: ${data[i].phone}<br>
+				Token: ${data[i].token}<br>
+				Had covid: ${data[i].had_covid}<br>
+				Had covid at: ${data[i].had_covid_at}<br>
+				Vaccinated: ${data[i].vaccinated}<br>
+				Vaccination date: ${data[i].vaccinated_at}<br>
+				Wants to organize devtalks: ${data[i].will_organize_devtalk}<br>
+				Work preference: ${data[i].work_preference}<br>
+				Devtalk topic: ${data[i].devtalk_topic}<br>
+				Something special: ${data[i].something_special}<br>
+				Skills: ${JSON.stringify(data[i].skills)}<br><br><br>`
+				app.appendChild(row);
+				if(b==1){
+					document.querySelector("#all").textContent="Hide";
+					app.style.display="block";
+				}
+				if(b==2){
+					app.style.display="none";
+					document.querySelector("#all").textContent="All";
+					b=0;
+				}
+			}
+		});
+	}
+
+	function check(){
+
+		fetch(`https://bootcamp-2022.devtest.ge/api/applications?token=${localStorage.getItem("fetchToken")}`).then(response => response.json()).then(data => {
+			var app = document.querySelector(".application");
+			var dataNum;
+			var num = document.querySelector("#datanum").value;
+			app.style.display="block";
+			if(num == ""){
+				app.innerHTML = ` Please enter the number `;
+				return;
+			}
+			if(num != ""){
+				dataNum = num-1;
+			}
+
+			app.innerHTML=
+
+			`
+			<b><span style="color:#4b7b4b; font-size: 16px">DATA # = ${dataNum+1}</b></span><br><br>
+			Name: ${data[dataNum].first_name}<br>
+			Surname: ${data[dataNum].last_name}<br>
+			Email: ${data[dataNum].email}<br>
+			Number: ${data[dataNum].phone}<br>
+			Token: ${data[dataNum].token}<br>
+			Had covid: ${data[dataNum].had_covid}<br>
+			Had covid at: ${data[dataNum].had_covid_at}<br>
+			Vaccinated: ${data[dataNum].vaccinated}<br>
+			Vaccination date: ${data[dataNum].vaccinated_at}<br>
+			Wants to organize devtalks: ${data[dataNum].will_organize_devtalk}<br>
+			Work preference: ${data[dataNum].work_preference}<br>
+			Devtalk topic: ${data[dataNum].devtalk_topic}<br>
+			Something special: ${data[dataNum].something_special}<br>
+			Skills: ${JSON.stringify(data[dataNum].skills)}<br><br>`}).catch(error => {
+			var app = document.querySelector(".application");
+			app.innerHTML = ` Data does not exist `;
+	})}
+
+</script>
+
+
+
+
+
+
+
+
+
+	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title> Redberry | Skills </title>
+		<link rel="stylesheet" href="style.css">
+		<script defer src="main.js"></script>
+	</head>
+
+	<body onload="fillSkillValues(); fetchSkills()" class="skills-body">
+		<div class="skills-divL split">
+			<h1 class="skills-hL"> Tell us about your skills </h1>
+			<div class="skill-error"><p><b>Please fill in the form!</b></p></div>
+			<form name="skills" action="covid.html" class="skill" id="skills">	
+				<select id="selectBox" name="skills" class="select-skill" required></select>
+				<span id="skill-text"> Skills </span>
+				<div class="skills-exp-div">
+					<input type="number" autocomplete="off"  id="skills-exp" placeholder="Experience Duration in Years"></input>
+					<p onclick="addskill()" id="skill-btn" >Add Programming Language</p>
+
+				</div>
+				
+				<div id="skills-list" class="skills-exp-div skillL">
+					<div id="row">
+						<span key="" id="skills-list-title"></span><span id="skills-list-year"></span>	
+				</div>
+			</div>
+			</form>
+			<div class="switchbar switch1 skill-switchbar">
+					<div class="circles">
+						<a link href="pinfo.html">
+							<img id="previous" src="images/previous.svg">
+						</a>
+						<a link href="pinfo.html">
+							<img id="circle1" class="circleon" src="images/circleon.svg">
+						</a>
+						<img id="circle2" src="images/circleon.svg">
+						<img id="circle3" src="images/circleoff.svg">
+						<img id="circle4" src="images/circleoff.svg">
+						<img id="circle5" src="images/circleoff.svg">
+						<button onclick="showError()" id="nextpage" type="submit">
+							<img id="next" src="images/next.svg"></img>
+						</button>
+						
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+
+		<div class="skills-divR split">
+			<h1 class="skills-hR">A bit about our battles</h1>
+			<p> As we said, Redberry has been on the field for quite some time now, and we have touched and embraced a variety of programming languages, technologies, philosophies, and frameworks. We are battle-tested in PHP Laravel Stack with Vue.js, refined in React, and allies with Serverside technologies like Docker and Kubernetes, and now we have set foot in the web3 industry. </p>
+		</div>
+	</body>
+</html>
+
+<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+
